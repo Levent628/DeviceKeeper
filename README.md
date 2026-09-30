@@ -13,6 +13,10 @@
 [![Dependencies](https://img.shields.io/badge/dependencies-zero-1F874B?style=flat-square)](#技术栈)
 [![License](https://img.shields.io/badge/license-MIT-9AA1AC?style=flat-square)](LICENSE)
 
+### [⬇️ 下载开箱即用版（83 MB，解压双击即用）](https://github.com/Levent628/DeviceKeeper/releases/download/v1.0.0/DeviceKeeper-v1.0.0-win64.zip)
+
+<sub>已内置 Node 运行时与编译好的主程序，无需配置环境 · [全部版本](https://github.com/Levent628/DeviceKeeper/releases)</sub>
+
 </div>
 
 ---
@@ -52,12 +56,15 @@ DeviceKeeper 做的事很简单：**修改这些设备的 `Capabilities` 注册�
 
 ## 快速开始
 
-### 1. 编译主程序（首次，约 3 秒）
+> 想直接上手？下载 [**开箱即用版 zip**](https://github.com/Levent628/DeviceKeeper/releases/download/v1.0.0/DeviceKeeper-v1.0.0-win64.zip)，解压后跳到第 **2** 步。包内已含 Node 运行时和编译好的主程序，无需任何环境配置。
+
+### 1. 编译主程序（仅源码用户，约 3 秒）
 
 双击根目录的 **`编译程序.bat`** → 生成 `DeviceKeeper.exe`
 
 > 用系统自带的 .NET Framework 编译器，不需要安装任何东西。
 > `build/` 里是编译用的源文件，**不要**直接双击它们。
+> 若使用开箱即用版，此步可跳过——exe 已编译好。
 
 ### 2. 启动
 
@@ -142,13 +149,15 @@ U 盘的"可弹出"来自**存储媒体层**（`USBSTOR` 枚举的媒体节点�
 ```
 DeviceKeeper/
 ├─ DeviceKeeper.exe   主程序（C# 托盘 + 启动器，requireAdministrator）
-├─ node.exe           内置运行时（请勿删除）
+├─ node.exe           内置运行时（请勿删除，83 MB）
 ├─ server.js          后端服务（HTTP API + 注册表 + 守护循环 + 计划任务）
 ├─ public/            网页界面（单页，含本地字体，离线可用）
 ├─ assets/icon.ico    图标
 ├─ build/             源码与编译脚本（tray.cs / app.manifest）
 ├─ 编译程序.bat        一键编译
-└─ README.txt         离线版说明
+├─ README.md          本文件
+├─ README.txt         离线纯文本版说明（给现场老师看）
+└─ LICENSE            MIT
 
 数据目录（自动创建）：%ProgramData%\DeviceKeeper\
 ├─ config.json        守护配置
@@ -156,6 +165,14 @@ DeviceKeeper/
 ├─ logs/              app.log + 每次启动的独立会话日志
 └─ token              API 访问令牌
 ```
+
+### 三种获取方式
+
+| 方式 | 适合 | 做法 |
+|---|---|---|
+| **开箱即用版** | 直接部署到教室 | 下载 [Release zip](https://github.com/Levent628/DeviceKeeper/releases/download/v1.0.0/DeviceKeeper-v1.0.0-win64.zip)，解压双击 `DeviceKeeper.exe` |
+| **源码 + 本地编译** | 想看代码 / 二次开发 | `git clone` → 双击 `编译程序.bat` → 从 [nodejs.org](https://nodejs.org/) 下载 Node 22 的 `node.exe` 放入根目录 |
+| **仅需主程序** | 已有 Node 环境 | 从 Release 附件取 exe，或自行编译 |
 
 ## 技术栈
 
