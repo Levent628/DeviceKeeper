@@ -1,0 +1,9 @@
+# 编译产物（由 编译程序.bat 生成，可从源码重建）
+/DeviceKeeper.exe
+
+# 运行时（体积过大，发布时用 Release 附件提供）
+/node.exe
+
+# 本地数据
+/data/
+*.log
